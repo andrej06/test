@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chef Market | Beszállítói Portál</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Tenor+Sans&display=swap" rel="stylesheet">
+    
+    <style>
+        :root { --green: #10b981; --gold: #d4af37; --black: #020504; }
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: var(--black); 
+            color: #f1f5f9;
+            overflow-x: hidden;
+        }
+        .serif { font-family: 'Tenor Sans', serif; }
+
+        /* Láthatóság fix */
+        .reveal-node { opacity: 0; transform: translateY(30px); }
+
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .gold-glow {
+            background: linear-gradient(to right, #ffffff, var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Beszállítói jelvény */
+        .supplier-badge {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid var(--green);
+            color: var(--green);
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        #bg-aura {
+            position: fixed; width: 70vw; height: 70vw;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.05) 0%, rgba(212, 175, 55, 0.03) 50%, transparent 70%);
+            z-index: -1; transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="bg-aura"></div>
+
+    <div class="fixed top-8 left-10 z-[1000] flex flex-col gap-2">
+        <div class="serif text-xl tracking-[0.4em] font-bold text-white flex items-center gap-4">
+            <span class="w-8 h-[2px] bg-emerald-500"></span> CHEF MARKET
+        </div>
+        <div class="text-[9px] tracking-[0.3em] font-bold text-slate-500 uppercase">Professzionális Beszállítói Portál</div>
+    </div>
+    
+    <div class="fixed top-8 right-10 z-[1000] flex items-center gap-6">
+        <a href="https://chefmarket.hu" class="text-[10px] font-bold uppercase tracking-widest text-slate-500 hover:text-white transition-colors">
+            Vásárolni szeretnék →
+        </a>
+        <div class="h-4 w-[1px] bg-white/10"></div>
+        <button class="glass-panel px-8 py-3 rounded-full text-[10px] font-bold uppercase tracking-[0.3em] text-white border-white/10 hover:bg-white/10 transition-all">
+            Belépés
+        </button>
+        <button class="glass-panel px-8 py-3 rounded-full text-[10px] font-bold uppercase tracking-[0.3em] text-emerald-400 border-emerald-500/30 hover:bg-emerald-600 hover:text-white shadow-[0_0_30px_rgba(16,185,129,0.2)]">
+            Regisztráció
+        </button>
+    </div>
+
+    <section class="min-h-screen flex items-center px-10 md:px-24">
+        <div class="max-w-6xl">
+            <div class="supplier-badge mb-8 inline-block animate-pulse">B2B Beszerzési Platform</div>
+            <h1 class="serif text-6xl md:text-[8rem] leading-[0.85] tracking-tighter mb-10">
+                A jövő <br> <span class="gold-glow italic">Beszállítói Hub-ja.</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-slate-400 font-light max-w-3xl leading-relaxed mb-12">
+                Ez a felület kizárólag szerződött termelői és kereskedelmi partnereink számára fenntartott zárt rendszer. 
+                Kezelje termékadatait, kövesse riportjait és indítson új beszállítási igényeket a Chef Market és a Culinaris egyesült hálózatába.
+            </p>
+            <div class="flex gap-4">
+                <button class="px-12 py-6 bg-emerald-600 text-white rounded-full font-bold uppercase tracking-[0.4em] text-[10px] hover:scale-110 transition-transform">
+                    Beszállítói Jelentkezés
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-32 px-10 md:px-24 border-t border-white/5 bg-white/[0.02]">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-12">
+            <div class="reveal-node">
+                <h4 class="serif text-gold text-4xl mb-6 italic">Gourmet Elérés</h4>
+                <p class="text-slate-400 font-light leading-relaxed">Termékei a Culinaris prémium üzlethálózatába és Magyarország top séfjeinek asztalára kerülnek.</p>
+            </div>
+            <div class="reveal-node">
+                <h4 class="serif text-emerald-500 text-4xl mb-6 italic">Masszív Volumen</h4>
+                <p class="text-slate-400 font-light leading-relaxed">A Chef Market logisztikai erejével az ország legnagyobb HoReCa beszállítói láncának részévé válik.</p>
+            </div>
+            <div class="reveal-node">
+                <h4 class="serif text-blue-400 text-4xl mb-6 italic">Digitális Kontroll</h4>
+                <p class="text-slate-400 font-light leading-relaxed">Nincs több elveszett Excel-tábla. Minden termékadat, árfrissítés és számla egyetlen zárt rendszerben.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 px-6 md:px-24">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-8">
+            
+            <div class="lg:col-span-8 glass-panel p-16 rounded-[4rem] group reveal-node relative overflow-hidden">
+                <div class="flex justify-between items-start mb-12">
+                    <span class="text-emerald-500 font-bold text-xs uppercase tracking-[0.4em]">Beszerzési Modul</span>
+                    <div class="text-gold font-bold text-[10px] border border-gold/20 px-3 py-1 rounded">SZERZŐDÖTT PARTNEREKNEK</div>
+                </div>
+                <h2 class="serif text-6xl mb-8 leading-tight">Új Termék <br> <span class="italic">Regisztráció.</span></h2>
+                <p class="text-slate-400 text-lg font-light max-w-xl mb-12">
+                    Szeretne új árucikket bevezetni a szortimentünkbe? Itt indíthatja el a termékregisztrációs folyamatot, ahol minden technikai paramétert rögzíthet.
+                </p>
+                <button class="flex items-center gap-4 text-emerald-400 font-bold text-xs uppercase tracking-widest group-hover:gap-8 transition-all">
+                    ÚJ TERMÉK BEKÜLDÉSE <span class="text-xl">→</span>
+                </button>
+            </div>
+
+            <div class="lg:col-span-4 glass-panel p-12 rounded-[4rem] bg-gradient-to-br from-blue-900/10 to-transparent flex flex-col justify-end reveal-node">
+                <h3 class="serif text-4xl mb-6 text-blue-400">Eladási <br> Riportok</h3>
+                <p class="text-slate-500 text-xs font-bold uppercase tracking-wider">Lássa át beszállításai teljesítményét. Készletmozgás és fogyási statisztikák.</p>
+            </div>
+
+            <div class="lg:col-span-12 glass-panel p-16 rounded-[4rem] grid lg:grid-cols-2 gap-20 items-center mt-8 reveal-node">
+                <div>
+                    <span class="text-emerald-500 font-bold text-xs uppercase tracking-[0.4em] mb-8 block">Adminisztráció / The Vault</span>
+                    <h2 class="serif text-6xl mb-8 text-white">Adatkezelés és <br> Dokumentumok.</h2>
+                    <p class="text-slate-400 text-lg font-light leading-relaxed mb-10">
+                        Saját termékadatok módosítása (árak, összetevők, képek). Biztonságos dokumentumcsere: ossza meg minőségügyi tanúsítványait és számláit titkosított csatornán.
+                    </p>
+                    <div class="flex gap-4">
+                        <div class="px-8 py-4 glass-panel rounded-2xl text-[10px] font-bold tracking-widest text-emerald-500 uppercase">Adatfrissítés</div>
+                        <div class="px-8 py-4 glass-panel rounded-2xl text-[10px] font-bold tracking-widest text-blue-400">Biztonságos Dokumentumtár</div>
+                    </div>
+                </div>
+                <div class="relative rounded-[3rem] overflow-hidden aspect-video shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1590779033100-9f60705a2f3b?auto=format&fit=crop&q=80&w=1200" class="w-full h-full object-cover opacity-30 grayscale">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-40 px-10 md:px-24 border-y border-white/5">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="serif text-6xl text-center mb-24">Hogyan válhat <br> <span class="italic text-emerald-500">Partnerünkké?</span></h2>
+            <div class="space-y-32">
+                <div class="flex gap-16 items-start reveal-node">
+                    <span class="serif text-5xl text-emerald-500 opacity-20 italic">01</span>
+                    <div>
+                        <h4 class="serif text-3xl mb-4 text-white">Beszállítói Adatlap</h4>
+                        <p class="text-slate-400 font-light">Töltse ki a regisztrációs ívet cége és termékköre alapadataival.</p>
+                    </div>
+                </div>
+                <div class="flex gap-16 items-start reveal-node">
+                    <span class="serif text-5xl text-blue-500 opacity-20 italic">02</span>
+                    <div>
+                        <h4 class="serif text-3xl mb-4 text-white">Beszerzési Validáció</h4>
+                        <p class="text-slate-400 font-light">Szakértőink ellenőrzik a logisztikai és élelmiszerbiztonsági feltételeket.</p>
+                    </div>
+                </div>
+                <div class="flex gap-16 items-start reveal-node">
+                    <span class="serif text-5xl text-emerald-500 opacity-20 italic">03</span>
+                    <div>
+                        <h4 class="serif text-3xl mb-4 text-white">Rendszer Élesítés</h4>
+                        <p class="text-slate-400 font-light">Teljes hozzáférést kap a portálhoz, ahol megkezdheti az aktív termékfeltöltést és riportálást.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="h-screen flex flex-col justify-center items-center text-center p-10 bg-[#010302]">
+        <div class="relative z-10">
+            <h2 class="serif text-6xl md:text-[8rem] mb-12 tracking-tighter italic">Közös siker.</h2>
+            <p class="text-slate-400 max-w-xl mx-auto mb-16 text-lg font-light leading-relaxed">
+                Legyen Ön is részese Magyarország legdinamikusabb és legminőségibb beszállítói láncának.
+            </p>
+            <div class="flex flex-col md:flex-row gap-6 justify-center">
+                <button class="px-20 py-8 bg-emerald-600 text-white rounded-full font-bold uppercase tracking-[0.4em] text-[10px] hover:scale-110 transition-transform shadow-[0_0_80px_rgba(16,185,129,0.3)]">
+                    Jelentkezés indítása
+                </button>
+                <button class="px-20 py-8 glass-panel text-white rounded-full font-bold uppercase tracking-[0.4em] text-[10px] hover:bg-white/10 transition-all">
+                    Vissza a Vásárlói oldalra
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-20 text-center opacity-20 text-[9px] font-bold uppercase tracking-[1em]">
+        CHEFMARKET.HU / CULINARIS / BESZÁLLÍTÓI APEX NODE / 2026
+    </footer>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        const aura = document.querySelector('#bg-aura');
+        window.addEventListener('mousemove', (e) => {
+            gsap.to(aura, { x: e.clientX, y: e.clientY, duration: 1.5, ease: "power2.out" });
+        });
+
+        window.onload = () => {
+            gsap.from("h1", { opacity: 0, y: 100, duration: 2, ease: "expo.out" });
+
+            gsap.utils.toArray(".reveal-node").forEach(node => {
+                gsap.to(node, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1.5,
+                    ease: "power4.out",
+                    scrollTrigger: {
+                        trigger: node,
+                        start: "top 92%",
+                        toggleActions: "play none none none"
+                    }
+                });
+            });
+        };
+    </script>
+</body>
+</html>
